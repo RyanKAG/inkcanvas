@@ -1,0 +1,67 @@
+﻿<Window x:Class="inkcanvas.MainWindow" Topmost="true" WindowStyle="toolwindow" Closing="MainWindow_Closing" ResizeMode="NoResize"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:inkcanvas" mc:Ignorable="d" Title="InkCanvas" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Click="MainWindowButton_Click" Tag="clear" Grid.ColumnSpan="2" Height="60" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [←] Clear everything
+                </ToolTip>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="Delete" />
+        </Button>
+        <Button Grid.Column="0" Grid.Row="1" Name="InkMode" Click="MainWindowButton_Click" Tag="ink" Height="60" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [D] Ink tool
+                </ToolTip>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="Brush" />
+        </Button>
+        <Button Grid.Row="1" Name="EraserMode" Click="MainWindowButton_Click" Tag="erase" Grid.Column="1" Height="60" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [E] Erase tool
+                </ToolTip>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="Eraser" />
+        </Button>
+        <Button Grid.Column="0" Grid.Row="2" Name="SelectMode" Click="MainWindowButton_Click" Tag="select" Height="60" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [M] Select move tool
+                </ToolTip>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="DragVariant" />
+        </Button>
+        <Button Grid.Column="1" Grid.Row="2" Name="EyeDropperMode" Click="MainWindowButton_Click" Tag="dropper" Height="60" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [I] Eye dropper tool
+                </ToolTip>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="EyeDropper" />
+        </Button>
+        <Button Height="120" Name="ColorSwatch" Click="MainWindowButton_Click" Tag="settings" Grid.Row="21" Grid.ColumnSpan="2" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF333333">
+            <Button.ToolTip>
+                <ToolTip Placement="Right">
+                    [C] Brush controls
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+    </Grid>
+</Window>
