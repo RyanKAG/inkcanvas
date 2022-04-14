@@ -31,9 +31,9 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{Binding}" Click="ColorSwatch_Set" Height="48" Width="48" Foreground="#FF333333">
+                        <Button Background="{Binding Brush}" Click="ColorSwatch_Set" Height="48" Width="48" Foreground="#FF333333">
                             <Button.ToolTip>
-                                <ToolTip Placement="Right" Content="{Binding Color}" />
+                                <ToolTip Placement="Right" Content="{Binding Keybind}" />
                             </Button.ToolTip>
                         </Button>
                     </DataTemplate>
@@ -57,9 +57,9 @@
             </ItemsControl>
         </Grid>
         <materialDesign:ColorPicker Grid.Row="1" x:Name="ColorPicker" PreviewMouseUp="ColorPicker_MouseUp" />
-        <Border Grid.Row="2" ClipToBounds="true" BorderThickness="1">
+        <Border Grid.Row="2" ClipToBounds="true">
             <Canvas Height="100" Width="100">
-                <Ellipse Canvas.Left="50" Canvas.Top="50" Name="BrushEllipse" />
+                <Ellipse Canvas.Left="50" Canvas.Top="50" StrokeThickness="1" Stroke="Gray" Name="BrushEllipse" StrokeDashArray="2 2" />
             </Canvas>
         </Border>
         <Slider Margin="8" Grid.Row="3" x:Name="BrushSizeSlider" Minimum="4" Maximum="100" TickFrequency="1" Style="{StaticResource MaterialDesignDiscreteSlider}" Foreground="DodgerBlue" ValueChanged="BrushSizeSlider_ValueChanged" />

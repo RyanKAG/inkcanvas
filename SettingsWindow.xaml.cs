@@ -12,20 +12,24 @@ namespace inkcanvas;
 /// </summary>
 public partial class SettingsWindow : Window
 {
+
+    public record ColorSwatch(SolidColorBrush Brush, string Keybind);
+
     byte[][] defaultSwatchesValue = new byte[][]
     {
-        new byte[] {255,0, 0, 0},
-        new byte[] {255,68, 132, 255},
-        new byte[] {255,73, 255, 244},
-        new byte[] {255,201, 91, 253},
-        new byte[] {255,251, 255, 78},
-        new byte[] {255,252, 148, 52},
-        new byte[] {255,255, 54, 54},
-        new byte[] {255,255, 255, 255},
+        new byte[] {255,0, 0, 0, 1},
+        new byte[] {255,255, 255, 255, 2},
+        new byte[] {255,68, 132, 255, 3},
+        new byte[] {255,73, 255, 244, 4},
+        new byte[] {255,201, 91, 253, 5},
+        new byte[] {255,251, 255, 78, 6},
+        new byte[] {255,252, 148, 52, 7},
+        new byte[] {255,255, 54, 54, 8},
     };
 
+
     public MainWindow mainWindow;
-    public ObservableCollection<SolidColorBrush> defaultSwatches = new();
+    public ObservableCollection<ColorSwatch> defaultSwatches = new();
     public ObservableCollection<SolidColorBrush> colorSwatches = new();
 
     public SettingsWindow(MainWindow mainWindow, SolidColorBrush solidColorBrush, double brushSize)
@@ -48,8 +52,6 @@ public partial class SettingsWindow : Window
     public void BrushEllipse_Set(double brushSize)
     {
         BrushEllipse.Fill = mainWindow.solidColorBrush;
-        BrushEllipse.Stroke = new SolidColorBrush(Colors.Black);
-        BrushEllipse.StrokeThickness = 1;
         BrushEllipse.Width = brushSize;
         BrushEllipse.Height = brushSize;
         Canvas.SetLeft(BrushEllipse, 50 - brushSize / 2);
@@ -67,7 +69,8 @@ public partial class SettingsWindow : Window
     {
         foreach (byte[] values in defaultSwatchesValue)
         {
-            defaultSwatches.Add(new SolidColorBrush(Color.FromArgb(values[0], values[1], values[2], values[3])));
+            SolidColorBrush NewBrush = new SolidColorBrush(Color.FromArgb(values[0], values[1], values[2], values[3]));
+            defaultSwatches.Add(new ColorSwatch(NewBrush, $"[{values[4]}] {NewBrush.Color}"));
         }
         DefaultSwatches.ItemsSource = defaultSwatches;
     }

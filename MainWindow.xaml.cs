@@ -43,6 +43,54 @@ public partial class MainWindow : Window
     {
         switch (e.Key)
         {
+            // Select Black Brush
+            case Key.D1:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 0, 0, 0)));
+                break;
+
+            // Select White Brush
+            case Key.D2:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 255, 255, 255)));
+                break;
+
+            // Select Blue Brush
+            case Key.D3:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 68, 132, 255)));
+                break;
+
+            // Select Teal Brush
+            case Key.D4:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 73, 255, 244)));
+                break;
+
+            // Select Purple Brush
+            case Key.D5:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 201, 91, 253)));
+                break;
+
+            // Select Yellow Brush
+            case Key.D6:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 251, 255, 78)));
+                break;
+
+            // Select Orange Brush
+            case Key.D7:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 252, 148, 52)));
+                break;
+
+            // Select Red Brush
+            case Key.D8:
+                drawWindow.Focus();
+                settingsWindow.ColorPicker_Set(new SolidColorBrush(Color.FromArgb(255, 255, 54, 54)));
+                break;
+
             // Focus MainWindow
             case Key.A:
                 this.Focus();
@@ -82,7 +130,6 @@ public partial class MainWindow : Window
                 drawWindow.InkCanvasEditingMode_Set("select");
                 break;
 
-            // task : create a method on DrawWindow to handle Undo function
             // Undo Stroke
             case Key.Z:
                 if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
@@ -93,7 +140,6 @@ public partial class MainWindow : Window
                 }
                 break;
 
-            // task : create a method on DrawWindow to handle Redo function
             // Redo Stroke
             case Key.Y:
                 if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
